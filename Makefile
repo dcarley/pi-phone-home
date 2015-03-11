@@ -1,4 +1,4 @@
-.PHONY: all godep test build arm snappy snappy-build snappy-deploy docker
+.PHONY: all godep test build arm clean snappy snappy-build snappy-deploy docker
 
 all: test build
 
@@ -15,6 +15,9 @@ build: godep
 arm: export GOARCH = arm
 arm: export GOARM = 7
 arm: build
+
+clean:
+	rm -f pi-phone-home *.snap
 
 snappy: snappy-build snappy-deploy
 
